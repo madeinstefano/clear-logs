@@ -25,7 +25,7 @@ const bsh = {
 
 const config = {
   appendix: null,
-  stackUp: 11,
+  stackUp: 4,
   envs: {
     production: [ 'error', 'log', 'warn' ],
     staging: [ 'error', 'log', 'warn' ],
