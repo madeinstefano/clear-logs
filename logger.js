@@ -39,7 +39,7 @@ function log( ) {
   var envCfg = config.envs[process.env.NODE_ENV || 'development'];
   var [ method, ...args ] = Array.from( arguments );
   
-  if ( !envCfg.includes( method ) ) { return; }
+  if ( !envCfg || !envCfg.includes( method ) ) { return; }
   
   var prefix = `${bsh.intro}${timestamp.now()}${bsh.reset} ` + 
     `${bsh[method]}${method.toUpperCase()}${bsh.reset} ` + 
