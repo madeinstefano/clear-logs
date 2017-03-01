@@ -1,8 +1,8 @@
 {
-  "name": "clear_logs",
+  "name": "clear-logs",
   "version": "0.0.1",
   "description": "A easy way to show logs on node js",
-  "main": "clear_logs.js",
+  "main": "logger.js",
   "dependencies": {
     "padleft": "latest"
   },
