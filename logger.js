@@ -28,8 +28,8 @@ const config = {
   appendix: null,
   stackUp: 4,
   envs: {
-    production: [ 'error', 'log', 'warn' ],
-    staging: [ 'error', 'log', 'warn' ],
+    production: [ 'error', 'log', 'warn', 'info' ],
+    staging: [ 'error', 'log', 'warn', 'info' ],
     test: [ 'error', 'log', 'warn', 'debug', 'info' ],
     development: [ 'error', 'log', 'warn', 'debug', 'info' ]
   }
