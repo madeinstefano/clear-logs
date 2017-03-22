@@ -24,6 +24,7 @@ const bsh = {
 };
 
 const config = {
+  console: console,
   appendix: null,
   stackUp: 4,
   envs: {
@@ -35,29 +36,29 @@ const config = {
 }
 
 function log( ) {
-  
+
   var envCfg = config.envs[process.env.NODE_ENV || 'development'];
   var [ method, ...args ] = Array.from( arguments );
-  
+
   if ( !envCfg || !envCfg.includes( method ) ) { return; }
-  
-  var prefix = `${bsh.intro}${timestamp.now()}${bsh.reset} ` + 
-    `${bsh[method]}${method.toUpperCase()}${bsh.reset} ` + 
+
+  var prefix = `${bsh.intro}${timestamp.now()}${bsh.reset} ` +
+    `${bsh[method]}${method.toUpperCase()}${bsh.reset} ` +
     `${bsh.line}${tracer.lineInfo( config.stackUp )}${bsh.reset} ` +
-    ( config.appendix ? `${bsh.appendix}[${config.appendix}]${bsh.reset} ` : '') + 
+    ( config.appendix ? `${bsh.appendix}[${config.appendix}]${bsh.reset} ` : '') +
     `${bsh.arrow}>>${bsh.reset}`;
-  
-  return console.log( prefix, ...args.map( serializer.stringifyInfo ) );
+
+  return config.console.log( prefix, ...args.map( serializer.stringifyInfo ) );
 }
 
 module.exports = {
-  
+
   /**
    * Configure logger
    * @param config <Object> | Setup the settings for this logger
    */
   config( _config ) { extend( config, _config ); },
-  
+
   /**
    * Logging methods
    */
