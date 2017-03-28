@@ -39,5 +39,6 @@ logger.config( { /* opts */ } );
 | stackUp | 4 | How much going throw Error.stack to get the line, file and fn name for logging. Don't mess with this |
 | envs.production | [ 'error', 'log', 'warn' ] | What types of logs will be sent on this NODE_ENV |
 | envs.staging | [ 'error', 'log', 'warn' ] | What types of logs will be sent on this NODE_ENV |
-
+| envs.test | [ 'error', 'log', 'warn', 'debug', 'info' ] | What types of logs will be sent on this NODE_ENV |
+| envs.development | [ 'error', 'log', 'warn', 'debug', 'info' ] | What types of logs will be sent on this NODE_ENV |
 
