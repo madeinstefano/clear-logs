@@ -30,7 +30,8 @@ you can setup configurations using the config method:
 logger.config( { /* opts */ } );
 ```
 
-Where:
+*Where:*
+
 | prop | default | descr |
 | ---- | ------- | ----- |
 | console | console | A overwrite of the inner console objeto, useful for outputing from another process |
@@ -40,3 +41,4 @@ Where:
 | envs.staging | [ 'error', 'log', 'warn' ] | What types of logs will be sent on this NODE_ENV |
 | envs.test | [ 'error', 'log', 'warn', 'debug', 'info' ] | What types of logs will be sent on this NODE_ENV |
 | envs.development | [ 'error', 'log', 'warn', 'debug', 'info' ] | What types of logs will be sent on this NODE_ENV |
+
