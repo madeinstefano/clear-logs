@@ -1,6 +1,8 @@
 # Clear logs
 
-A lib to provide more context around logs, making those clear and easy to display
+![alt text](https://raw.githubusercontent.com/madeinstefano/clear_logs/master/sample.png)
+
+A lib to provide more context around logs, making them clear and easy to display.
 
 ## 1. Install & import
 
@@ -15,30 +17,48 @@ const logger = require('clear_logs');
 logger.log( 'Something', 'something 2', 'something 3');
 ```
 
-Where the methods are:
-**log**
-**error**
-**info**
-**warn**
-**debug**
+Where the methods are the same as the ol' good console:
+- **log**
+- **error**
+- **info**
+- **warn**
+- **debug**
 
-## 3. Config
+## 3. Done!
 
-you can setup configurations using the config method:
+---
+
+## Advanced config (Hey, maybe you need something else)
+
+You can setup some aditional configurations to shape the logger for your needs.
+Just set using the `config` method:
 
 ```js
 logger.config( { /* opts */ } );
 ```
 
-*Where:*
+*Where your options are:*
 
 | prop | default | descr |
 | ---- | ------- | ----- |
-| console | console | A overwrite of the inner console objeto, useful for outputing from another process |
-| appendix | null | Info to append to all logs |
-| stackUp | 4 | How much going throw Error.stack to get the line, file and fn name for logging. Don't mess with this |
-| envs.production | [ 'error', 'log', 'warn' ] | What types of logs will be sent on this NODE_ENV |
-| envs.staging | [ 'error', 'log', 'warn' ] | What types of logs will be sent on this NODE_ENV |
-| envs.test | [ 'error', 'log', 'warn', 'debug', 'info' ] | What types of logs will be sent on this NODE_ENV |
-| envs.development | [ 'error', 'log', 'warn', 'debug', 'info' ] | What types of logs will be sent on this NODE_ENV |
+| console | console | This is the node console, used to stdout the stuff. You can pass your own console here, if you need. Just dont forget to have the same methods as the normal console (log info, warn, error, debug) |
+| appendix | null | Info to prepend to all your logs |
+| stackUp | 4 | How much going thru the Error.stack to get the line, file and fn name for logging. Don't mess with this unless you really need too. |
+| envs.production | [ 'error', 'log', 'warn' ] | What methods will actually output when NODE_ENV === 'production' |
+| envs.staging | [ 'error', 'log', 'warn' ] | What methods will actually output in when NODE_ENV === 'staging' |
+| envs.test | [ 'error' ] | What methods will actually output when NODE_ENV === 'test' |
+| envs.development | [ 'error', 'log', 'warn', 'debug', 'info' ] | What methods will actually output when NODE_ENV === 'development' |
 
+So, lets say you dont want to polute your tests with logs, but want those in the production version of your app, you can config as following:
+
+```js
+logger.config( { 
+  envs: {
+    test: [] 
+  } 
+});
+```
+
+So now, no stdout will be made in this environment.
+
+### Enjoy!

@@ -1,14 +1,16 @@
 {
   "name": "clear-logs",
-  "version": "0.0.12",
+  "version": "0.1.0",
   "description": "A easy way to show logs on node js",
   "main": "logger.js",
-  "dependencies": {
-    "padleft": "^0.2.0"
-  },
   "devDependencies": {
     "chai": "3.5.0",
-    "mocha": "3.0.1"
+    "mocha": "3.0.1",
+    "eslint": "^3.16.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0"
   },
   "repository": {
     "type": "git",
@@ -20,11 +22,12 @@
     "node"
   ],
   "engines": {
-    "node": "8.4.0",
-    "npm": "5.4.0"
+    "node": "10.1.0",
+    "npm": "6.0.1"
   },
   "scripts": {
-    "test": "make test"
+    "test": "mocha --reporter spec --recursive ./spec/unit",
+    "lint": "eslint logger.js --fix && eslint ./lib --fix"
   },
   "contributors": [
     {
