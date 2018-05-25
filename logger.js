@@ -27,7 +27,7 @@ const config = {
   }
 };
 
-function log( method, ...args ) {
+const log = ( method, ...args ) => {
   const envCfg = config.envs[process.env.NODE_ENV || 'development'];
 
   if ( !envCfg || !envCfg.includes( method ) ) { return; }
@@ -39,7 +39,7 @@ function log( method, ...args ) {
     }${bsh.arrow}>>${bsh.reset}`;
 
   return config.console.log( prefix, ...args.map( serializer.stringifyInfo ) );
-}
+};
 
 module.exports = {
 

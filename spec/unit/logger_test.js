@@ -1,56 +1,51 @@
-const chai = require('chai');
+const chai = require( 'chai' );
+
 const expect = chai.expect;
-const logger = require('../../logger.js');
+const logger = require( '../../logger.js' );
 
-var logFn;
+let logFn;
 
-logger.config({
+logger.config( {
   console: {
-    log: function () {
-      logFn( ...Array.from(arguments));
+    log( ...args ) {
+      logFn( ...args );
     }
   }
-})
+} );
 
-describe('Show log message', function () {
+describe( 'Show log message', () => {
+  it( 'Should log message as log', () => {
+    logFn = ( ...args ) => {
+      expect( args[1] ).to.eql( 'log' );
+    };
+    logger.log( 'log' );
+  } );
 
-  it('Should log message as log', function () {
-    logFn = function () {
-      var msg = Array.from(arguments)[1];
-      expect(msg).to.eql('Oi');
-    }
-    logger.log('Oi');
-  });
+  it( 'Should log message as warn', () => {
+    logFn = ( ...args ) => {
+      expect( args[1] ).to.eql( 'warn' );
+    };
+    logger.warn( 'warn' );
+  } );
 
-  it('Should log message as warn', function () {
-    logFn = function () {
-      var msg = Array.from(arguments)[1];
-      expect(msg).to.eql('Oi');
-    }
-    logger.warn('Oi');
-  });
+  it( 'Should log message as error', () => {
+    logFn = ( ...args ) => {
+      expect( args[1] ).to.eql( 'error' );
+    };
+    logger.error( 'error' );
+  } );
 
-  it('Should log message as error', function () {
-    logFn = function () {
-      var msg = Array.from(arguments)[1];
-      expect(msg).to.eql('Oi');
-    }
-    logger.error('Oi');
-  });
+  it( 'Should log message as info', () => {
+    logFn = ( ...args ) => {
+      expect( args[1] ).to.eql( 'info' );
+    };
+    logger.info( 'info' );
+  } );
 
-  it('Should log message as info', function () {
-    logFn = function () {
-      var msg = Array.from(arguments)[1];
-      expect(msg).to.eql('Oi');
-    }
-    logger.info('Oi');
-  });
-
-  it('Should log message as debug', function () {
-    logFn = function () {
-      var msg = Array.from(arguments)[1];
-      expect(msg).to.eql('Oi');
-    }
-    logger.debug('Oi');
-  });
-});
+  it( 'Should log message as debug', () => {
+    logFn = ( ...args ) => {
+      expect( args[1] ).to.eql( 'debug' );
+    };
+    logger.debug( 'debug' );
+  } );
+} );

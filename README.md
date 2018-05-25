@@ -6,10 +6,10 @@ A lib to provide more context around logs, making them clear and easy to display
 
 ## 1. Install & import
 
-`npm install clear_logs`
+`npm install clear-logs`
 
 ```js
-const logger = require('clear_logs');
+const logger = require('clear-logs');
 ```
 
 ## 2. Just use it

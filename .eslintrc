@@ -26,5 +26,8 @@
     "class-methods-use-this": 1,
     "operator-linebreak": ["warn", "after"],
     "max-len": ["error", { "code": 100 }]
+  },
+  "env": {
+    "mocha": true
   }
 }

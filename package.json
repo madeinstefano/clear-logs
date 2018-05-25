@@ -1,7 +1,7 @@
 {
   "name": "clear-logs",
-  "version": "0.1.0",
-  "description": "A easy way to show logs on node js",
+  "version": "1.0.0",
+  "description": "A cool way to show logs on node js",
   "main": "logger.js",
   "devDependencies": {
     "chai": "3.5.0",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:madeinstefano/clear_logs.git"
+    "url": "git@github.com:szanata/clear_logs.git"
   },
   "keywords": [
     "logs",
@@ -27,7 +27,7 @@
   },
   "scripts": {
     "test": "mocha --reporter spec --recursive ./spec/unit",
-    "lint": "eslint logger.js --fix && eslint ./lib --fix"
+    "lint": "eslint logger.js --fix && eslint ./lib --fix && eslint ./spec --fix"
   },
   "contributors": [
     {
